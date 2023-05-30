@@ -44,17 +44,19 @@ $producten = $pdo->query("SELECT * FROM producten")->fetchAll();
                 <th>Product_naam</th>
                 <th>Prijs_per_stuk</th>
                 <th>Omschrijving</th>
+                <th>action</th>
             </tr>
-            <?php foreach ($producten as $row) { ?>
+            <?php foreach ($producten as $row) { ?> <a href=""></a>
                 <tr>
                     <td><?php echo ($row['product_code']); ?></td>
                     <td><?php echo ($row['product_naam']); ?></td>
                     <td><?php echo ($row['prijs_per_stuk']); ?></td>
                     <td><?php echo ($row['omschrijving']); ?></td>
+                    <td><?php echo("<a href='delete.php?product_code=$row[0]'>delete</a>") ?></td>
                 </tr>
             <?php } ?>
         </table>
-        <a href="delete.php?product_code=2">delete.php?product_code=2</a>
+        <?php print_r($producten) ?>
     </div>
 </body>
 </html>
